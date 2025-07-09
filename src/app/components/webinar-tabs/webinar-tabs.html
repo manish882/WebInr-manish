@@ -1,0 +1,39 @@
+<!-- Tabs -->
+<div class="d-flex border-bottom mb-4 tabs-wrapper">
+  <div
+    class="tab-item me-4 pb-2"
+    [class.active]="activeTab === 'ForYou'"
+    (click)="activeTab = 'ForYou'"
+  >
+    For you
+  </div>
+  <div
+    class="tab-item me-4 pb-2"
+    [class.active]="activeTab === 'Live'"
+    (click)="activeTab = 'Live'"
+  >
+    Live
+  </div>
+  <div
+    class="tab-item pb-2"
+    [class.active]="activeTab === 'Upcoming'"
+    (click)="activeTab = 'Upcoming'"
+  >
+    Upcoming
+  </div>
+</div>
+
+<!-- Heading -->
+<h6 class="fw-semibold mb-3">Registered webinars</h6>
+
+<!-- Show cards only for 'ForYou' tab -->
+<div class="row g-4" *ngIf="activeTab === 'ForYou'">
+  <div class="col-md-6" *ngFor="let webinar of webinars">
+    <app-webinar-card [data]="webinar"></app-webinar-card>
+  </div>
+</div>
+
+<!-- Optional: show message for other tabs -->
+<div *ngIf="activeTab !== 'ForYou'" class="text-muted">
+  No webinars available in this tab.
+</div>

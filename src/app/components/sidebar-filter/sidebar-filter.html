@@ -1,0 +1,80 @@
+
+ <div class="sidebar p-3 border-end bg-white" style="width: 30vw; min-width: 250px; max-width: 400px; height: 100vh;">
+  <div ngbAccordion activeIds="specialty">
+
+    <!-- Specialty Accordion -->
+    <div ngbAccordionItem id="specialty" [collapsed]="false">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Specialty</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <div class="mb-2">
+            <div class="input-group">
+              <span class="input-group-text bg-white border-end-0">
+                <i class="bi bi-search"></i>
+              </span>
+              <input
+                type="text"
+                class="form-control border-start-0"
+                placeholder="Search"
+                [(ngModel)]="searchTerm"
+              />
+            </div>
+          </div>
+
+
+          <div *ngFor="let item of filteredSpecialties">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  [id]="item"
+                  [(ngModel)]="selected[item]"
+                />
+           <label class="form-check-label" [for]="item">{{ item }}</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Topics Accordion -->
+    <div ngbAccordionItem id="topics">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Topics</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <p class="text-muted">Coming soon...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Speakers Accordion -->
+    <div ngbAccordionItem id="speakers">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Speakers</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <p class="text-muted">Coming soon...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pharma Accordion -->
+    <div ngbAccordionItem id="pharma">
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Pharma & associations</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <p class="text-muted">Coming soon...</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

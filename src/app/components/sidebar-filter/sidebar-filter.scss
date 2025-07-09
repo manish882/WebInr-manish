@@ -1,0 +1,29 @@
+
+
+
+.sidebar {
+  font-size: 14px;
+
+  .form-check {
+    margin-bottom: 0.5rem;
+  }
+
+  .input-group {
+    .input-group-text {
+      border-right: none;
+    }
+
+    .form-control {
+      border-left: none;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+    }
+  }
+
+  .accordion-button:not(.collapsed) {
+    background-color: transparent;
+    color: #000;
+  }
+}
