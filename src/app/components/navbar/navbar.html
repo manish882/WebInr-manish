@@ -1,27 +1,50 @@
+<style>
+  .custom-nav-link {
+    font-weight: 500;
+    color: #333;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+  .custom-nav-link:hover {
+    color: #000;
+    border-bottom: 2px solid #ccc;
+  }
+  .custom-nav-link.active {
+    color: #000;
+    font-weight: 600;
+    border-bottom: 2px solid #000;
+  }
+</style>
+
 <nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm px-3 py-2">
   <div class="container-fluid align-items-center justify-content-between">
+
+    <!-- Side Nav Toggle (only visible on md and below) -->
+    <button class="btn btn-light d-lg-none me-2">
+      <i class="bi bi-list fs-4"></i>
+    </button>
 
     <!-- Logo -->
     <a class="navbar-brand d-flex align-items-center me-3" href="#">
       <i class="bi bi-chat-dots fs-4 text-danger"></i>
     </a>
 
-    <!-- Search -->
-    <div class="search-box input-group" style="width: 300px;">
+    <!-- Search (visible md and up) -->
+    <div class="search-box input-group d-none d-md-flex" style="width: 300px;">
       <span class="input-group-text bg-white border-end-0 rounded-start-pill ps-3">
         <i class="bi bi-search"></i>
       </span>
       <input type="text" class="form-control border-start-0 rounded-end-pill" placeholder="Search in docquity">
     </div>
 
-    <!-- Nav Items -->
-    <ul class="navbar-nav flex-row align-items-center gap-3 ms-auto">
+    <!-- Nav Items (hidden on md, visible lg) -->
+    <ul class="navbar-nav flex-row align-items-center gap-3 ms-auto d-none d-lg-flex">
       <li class="nav-item">
         <a class="nav-link custom-nav-link" routerLink="/home" routerLinkActive="active">
           <i class="bi bi-house-door"></i> Home
         </a>
       </li>
-
       <li class="nav-item">
         <a class="nav-link custom-nav-link" routerLink="/skp" routerLinkActive="active">SKP</a>
       </li>
@@ -40,13 +63,9 @@
           <i class="bi bi-camera-video"></i> Webinar
         </a>
       </li>
-
-      <!-- Post Button -->
       <li class="nav-item">
         <button class="btn btn-dark rounded-pill px-4">+ Post</button>
       </li>
-
-      <!-- Profile Dropdown -->
       <li class="nav-item dropdown" ngbDropdown>
         <a class="nav-link dropdown-toggle d-flex align-items-center" ngbDropdownToggle role="button">
           <img src="https://via.placeholder.com/32" class="rounded-circle me-1" width="32" height="32" alt="User">
@@ -58,6 +77,13 @@
         </ul>
       </li>
     </ul>
+
+    <!-- Mobile Profile + Bell (only on sm) -->
+    <div class="d-flex align-items-center gap-3 d-md-none">
+      <a class="nav-link custom-nav-link" routerLink="/notifications">
+        <i class="bi bi-bell fs-5"></i>
+      </a>
+      <img src="https://via.placeholder.com/32" class="rounded-circle" width="32" height="32" alt="User">
+    </div>
   </div>
 </nav>
-

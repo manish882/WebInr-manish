@@ -1,7 +1,127 @@
-.card {
+.webinar-card {
   font-size: 14px;
-  img {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 420px;
+  margin: 0 auto;
+
+  .card-header {
+    background: transparent;
+    border-bottom: none;
+    padding: 10px 12px;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     object-fit: cover;
-    max-height: 200px;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.03) inset;
+  }
+
+  .banner-wrap {
+    position: relative;
+
+    .banner-img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    .live-ribbon {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ff4d4f;
+      color: white;
+      font-weight: 600;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 14px;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      i { font-size: 10px; }
+    }
+
+    .viewers-pill {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.95);
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      align-items: center;
+    }
+
+    .duration-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.72);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+  }
+
+  .card-body {
+    padding: 10px 12px;
+  }
+
+  .credits-pill {
+    background: #fff7e6;
+    color: #b36b00;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 13px;
+
+    .credits-expiry {
+      font-weight: 600;
+      color: #ff6b6b;
+      font-size: 11px;
+      margin-left: 6px;
+    }
+  }
+
+  .title {
+    font-size: 14px;
+    line-height: 1.25;
+    min-height: 36px;
+  }
+
+  .key-chip {
+    background: #fafafa;
+    border: 1px solid #f0f0f0;
+    padding: 8px;
+    border-radius: 8px;
+
+    .chip-text {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #6c757d;
+    }
+  }
+
+  .card-footer {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 8px;
+    margin-top: 8px;
+    color: #6c757d;
+    font-size: 13px;
+
+    i {
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .banner-img { height: 180px; }
   }
 }

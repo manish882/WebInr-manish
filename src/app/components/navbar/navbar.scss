@@ -16,3 +16,20 @@
     border-bottom: 2px solid #000;
   }
 }
+
+ .custom-nav-link {
+    font-weight: 500;
+    color: #333;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+  }
+  .custom-nav-link:hover {
+    color: #000;
+    border-bottom: 2px solid #ccc;
+  }
+  .custom-nav-link.active {
+    color: #000;
+    font-weight: 600;
+    border-bottom: 2px solid #000;
+  }

@@ -1,4 +1,4 @@
-<!-- Tabs -->
+ <!-- Tabs -->
 <div class="d-flex border-bottom mb-4 tabs-wrapper">
   <div
     class="tab-item me-4 pb-2"
@@ -26,14 +26,14 @@
 <!-- Heading -->
 <h6 class="fw-semibold mb-3">Registered webinars</h6>
 
-<!-- Show cards only for 'ForYou' tab -->
+<!-- Cards Grid -->
 <div class="row g-4" *ngIf="activeTab === 'ForYou'">
-  <div class="col-md-6" *ngFor="let webinar of webinars">
+  <div class="col-12 col-sm-6 col-lg-4" *ngFor="let webinar of webinars">
     <app-webinar-card [data]="webinar"></app-webinar-card>
   </div>
 </div>
 
-<!-- Optional: show message for other tabs -->
+<!-- Fallback -->
 <div *ngIf="activeTab !== 'ForYou'" class="text-muted">
   No webinars available in this tab.
 </div>

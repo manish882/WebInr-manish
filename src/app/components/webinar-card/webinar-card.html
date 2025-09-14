@@ -1,59 +1,73 @@
-<div class="card border rounded-4 shadow-sm mb-4">
-  <div class="card-body p-3">
-
-    <!-- Header -->
-    <div class="d-flex justify-content-between align-items-start mb-2">
-      <div>
+<div class="webinar-card shadow-sm rounded-3">
+  <div class="card-header d-flex align-items-center justify-content-between p-2">
+    <div class="d-flex align-items-center gap-2">
+      <img [src]="data.avatar" alt="org avatar" class="avatar" />
+      <div class="small">
         <div class="fw-semibold">{{ data.org }}</div>
-        <small class="text-muted">Sponsored by {{ data.sponsor }} · {{ data.timeAgo }}</small>
-      </div>
-      <div class="d-flex align-items-center gap-2">
-        <a href="#" class="small fw-semibold text-primary">+ Follow</a>
-        <i class="bi bi-three-dots-vertical text-muted"></i>
-      </div>
-    </div>
-
-    <!-- Banner Image -->
-    <div class="mb-3">
-      <img [src]="data.banner" class="imAg-fluid rounded-3 w-100" alt="webinar image" />
-    </div>
-
-    <!-- Credit Tag -->
-    <div class="mb-2">
-      <span class="badge bg-warning-subtle text-warning rounded-pill px-3 py-1">
-        <i class="bi bi-star-fill me-1"></i> {{ data.credits }}
-      </span>
-    </div>
-
-    <!-- Title -->
-    <div class="fw-semibold mb-2">{{ data.title }}</div>
-
-    <!-- Live Date & Ask Question -->
-    <div class="d-flex justify-content-between align-items-center bg-info-subtle rounded-2 p-2 mb-2">
-      <small class="text-muted">Goes live on<br><b>{{ data.goLive }}</b></small>
-      <button class="btn btn-dark rounded-pill px-3 py-1">Ask a question</button>
-    </div>
-
-    <!-- Highlights -->
-    <div class="text-muted small mb-2">
-      <b>KEY HIGHLIGHTS</b><br />
-      {{ data.highlights }}
-    </div>
-
-    <!-- Footer -->
-    <div class="d-flex justify-content-between small text-muted border-top pt-2">
-      <div class="d-flex align-items-center gap-3">
-        <div><i class="bi bi-hand-thumbs-up"></i> {{ data.likes }} Likes</div>
-        <div><i class="bi bi-chat-left-text"></i> {{ data.comments }} Comments</div>
-      </div>
-      <div class="d-flex align-items-center gap-3">
-        <div><i class="bi bi-eye"></i> {{ data.watching }} Watching</div>
-        <div class="d-flex gap-2">
-          <i class="bi bi-share" title="Share"></i>
-          <i class="bi bi-repeat" title="Repost"></i>
+        <div class="text-muted" style="font-size: 11px;">
+          {{ data.followers }} followers · {{ data.timeAgo }}
         </div>
       </div>
     </div>
+    <div class="d-flex align-items-center gap-2">
+      <a href="#" class="text-primary small fw-semibold">+</a>
+      <i class="bi bi-three-dots-vertical text-muted"></i>
+    </div>
+  </div>
 
+  <div class="banner-wrap position-relative">
+    <img [src]="data.banner" alt="banner" class="banner-img w-100" />
+    <div *ngIf="data.isLive" class="live-ribbon d-flex align-items-center">
+      <i class="bi bi-record-fill me-1"></i> Live
+    </div>
+    <div *ngIf="data.viewers" class="viewers-pill d-flex align-items-center">
+      <i class="bi bi-people-fill me-1"></i> {{ data.viewers | number }}
+    </div>
+    <div *ngIf="data.duration" class="duration-badge">
+      {{ data.duration }}
+    </div>
+  </div>
+
+  <div class="card-body p-2">
+    <div class="mb-2">
+      <span class="credits-pill d-inline-flex align-items-center">
+        <i class="bi bi-star-fill me-1"></i>
+        <span>{{ data.credits }}</span>
+        <small class="ms-2 text-danger credits-expiry">{{ data.creditsExpiry }}</small>
+      </span>
+    </div>
+
+    <div class="title fw-semibold mb-2">
+      {{ data.title }}
+    </div>
+
+    <div class="key-chip mb-2">
+      <div class="small text-muted"><b>KEY HIGHLIGHTS</b></div>
+      <div class="chip-text">{{ data.highlights }}</div>
+    </div>
+
+    <div class="card-footer d-flex justify-content-between align-items-center mt-2">
+      <div class="d-flex gap-3 small text-muted align-items-center">
+        <div class="d-flex align-items-center gap-1">
+          <i class="bi bi-hand-thumbs-up"></i>
+          <span>{{ data.likes }}</span>
+        </div>
+        <div class="d-flex align-items-center gap-1">
+          <i class="bi bi-chat-left-text"></i>
+          <span>{{ data.comments }}</span>
+        </div>
+      </div>
+
+      <div class="d-flex gap-3 small text-muted align-items-center">
+        <div class="d-flex align-items-center gap-1">
+          <i class="bi bi-eye"></i>
+          <span>{{ data.views }}</span>
+        </div>
+        <div class="d-flex gap-2">
+          <i class="bi bi-share"></i>
+          <i class="bi bi-arrow-repeat"></i>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
